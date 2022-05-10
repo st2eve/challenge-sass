@@ -1,0 +1,107 @@
+$GrisBleu : #6b717f;
+$Blanc : #fff;
+$Rose : #BF4080;
+$GrisF : #8C8C8C;
+$Noir : #000;
+$BCvert : green;
+$BCrouge : red;
+$BCorange : orange;
+
+body {
+    font: 100% "Space Mono", monospace;
+    color: $GrisBleu;
+    margin: 0;
+    padding: 0;
+    background-color: $Blanc;
+    overflow-x: hidden;
+
+    header{
+        h1{
+            color: $Rose;
+            text-align: center;
+        }
+    }
+
+    main {
+        padding: 0 1em;
+
+        article{
+            display: flex;
+            flex-wrap: wrap;
+
+            section{
+                flex-grow: 1;
+                flex-basis: 45%;
+                border: 1px $GrisF solid;
+                -webkit-box-shadow: 10px 10px 15px -4px $GrisBleu;
+                -moz-box-shadow: 10px 10px 15px -4px $GrisBleu;
+                box-shadow: 10px 10px 15px -4px $GrisBleu;
+                padding: 16px;
+                margin: 16px;
+                clear: both;
+                overflow: auto;
+                box-sizing: border-box;
+
+                #selling-points {
+                    flex-grow: 2;
+                    flex-basis: 100%;
+                }
+
+                h2{
+                    color: $Rose;
+                }
+            }
+            code {
+                background: $Noir;
+                border: 1px solid $GrisBleu;
+                color: $GrisF;
+                page-break-inside: avoid;
+                font-family: monospace;
+                font-size: 15px;
+                line-height: 1.6;
+                margin-bottom: 1.6em;
+                max-width: 100%;
+                overflow: auto;
+                padding: 1em 1.5em;
+                display: block;
+                word-wrap: break-word;
+            }
+            code.before {
+                float: left;
+                width: 40%;
+            }
+            code.after {
+                float: right;
+                width: 40%;
+            }
+        }
+        .messages {
+                padding: 16px;
+                .success{
+                    border: 1px solid $GrisF;
+                    padding: 16px;
+                    color: $Blanc;
+                    background-color: $BCvert;
+                }
+                .error{
+                    @extend .success;
+                    background-color: $BCrouge;
+                }
+                .warning{
+                    @extend .success;
+                    background-color: $BCorange;
+                }
+            }
+        
+    }
+
+    footer {
+        h3{
+            color: $Rose;
+            text-align: center;
+            font-size: 1.5em;
+            padding: 32px;
+            margin-bottom: 0px;
+        }
+    }
+}
