@@ -1,17 +1,16 @@
-$GrisBleu : #6b717f;
-$Blanc : #fff;
-$Rose : #BF4080;
-$GrisF : #8C8C8C;
-$Noir : #000;
-$BCvert : green;
-$BCrouge : red;
-$BCorange : orange;
+@import '_variables.scss';
+
+@mixin shadow {
+    -webkit-box-shadow: 10px 10px 15px -4px $GrisBleu;
+    -moz-box-shadow: 10px 10px 15px -4px $GrisBleu;
+    box-shadow: 10px 10px 15px -4px $GrisBleu;
+}
 
 body {
     font: 100% "Space Mono", monospace;
     color: $GrisBleu;
     margin: 0;
-    padding: 0;
+    padding: $GPad*0;
     background-color: $Blanc;
     overflow-x: hidden;
 
@@ -23,34 +22,39 @@ body {
     }
 
     main {
-        padding: 0 1em;
+        padding: $GPad*0 $GPad;
 
         article{
             display: flex;
             flex-wrap: wrap;
 
+            #selling-points {
+                flex-grow: 2;
+                flex-basis: 100%;
+
+                @for $i from 1 through 6 {
+                    li:nth-child(2n + #{$i}) {
+                      background-color: lighten($base-color, $i * 5%);
+                    }
+                  }
+            }
+
             section{
                 flex-grow: 1;
                 flex-basis: 45%;
                 border: 1px $GrisF solid;
-                -webkit-box-shadow: 10px 10px 15px -4px $GrisBleu;
-                -moz-box-shadow: 10px 10px 15px -4px $GrisBleu;
-                box-shadow: 10px 10px 15px -4px $GrisBleu;
-                padding: 16px;
+                @include shadow;
+                padding: $GPad;
                 margin: 16px;
                 clear: both;
                 overflow: auto;
                 box-sizing: border-box;
 
-                #selling-points {
-                    flex-grow: 2;
-                    flex-basis: 100%;
-                }
-
                 h2{
                     color: $Rose;
                 }
             }
+            
             code {
                 background: $Noir;
                 border: 1px solid $GrisBleu;
@@ -62,7 +66,7 @@ body {
                 margin-bottom: 1.6em;
                 max-width: 100%;
                 overflow: auto;
-                padding: 1em 1.5em;
+                padding: $GPad $GPad*1.5;
                 display: block;
                 word-wrap: break-word;
             }
@@ -76,17 +80,23 @@ body {
             }
         }
         .messages {
-                padding: 16px;
+                padding: $GPad;
+                
                 .success{
                     border: 1px solid $GrisF;
-                    padding: 16px;
+                    padding: $GPad;
                     color: $Blanc;
                     background-color: $BCvert;
                 }
                 .error{
                     @extend .success;
                     background-color: $BCrouge;
+
+                    &:hover{
+                        background-color: $BCvert;
+                    }
                 }
+
                 .warning{
                     @extend .success;
                     background-color: $BCorange;
@@ -100,7 +110,7 @@ body {
             color: $Rose;
             text-align: center;
             font-size: 1.5em;
-            padding: 32px;
+            padding: $GPad*2;
             margin-bottom: 0px;
         }
     }

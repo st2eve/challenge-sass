@@ -2,7 +2,7 @@ body {
   font: 100% "Space Mono", monospace;
   color: #6b717f;
   margin: 0;
-  padding: 0;
+  padding: 0px;
   background-color: #fff;
   overflow-x: hidden;
 }
@@ -11,7 +11,7 @@ body header h1 {
   text-align: center;
 }
 body main {
-  padding: 0 1em;
+  padding: 0px 16px;
 }
 body main article {
   display: -webkit-box;
@@ -19,6 +19,31 @@ body main article {
   display: flex;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
+}
+body main article #selling-points {
+  -webkit-box-flex: 2;
+      -ms-flex-positive: 2;
+          flex-grow: 2;
+  -ms-flex-preferred-size: 100%;
+      flex-basis: 100%;
+}
+body main article #selling-points li:nth-child(2n+1) {
+  background-color: #d8000b;
+}
+body main article #selling-points li:nth-child(2n+2) {
+  background-color: #f1000d;
+}
+body main article #selling-points li:nth-child(2n+3) {
+  background-color: #ff0c18;
+}
+body main article #selling-points li:nth-child(2n+4) {
+  background-color: #ff2530;
+}
+body main article #selling-points li:nth-child(2n+5) {
+  background-color: #ff3f49;
+}
+body main article #selling-points li:nth-child(2n+6) {
+  background-color: #ff5861;
 }
 body main article section {
   -webkit-box-flex: 1;
@@ -36,13 +61,6 @@ body main article section {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
 }
-body main article section #selling-points {
-  -webkit-box-flex: 2;
-      -ms-flex-positive: 2;
-          flex-grow: 2;
-  -ms-flex-preferred-size: 100%;
-      flex-basis: 100%;
-}
 body main article section h2 {
   color: #BF4080;
 }
@@ -57,7 +75,7 @@ body main article code {
   margin-bottom: 1.6em;
   max-width: 100%;
   overflow: auto;
-  padding: 1em 1.5em;
+  padding: 16px 24px;
   display: block;
   word-wrap: break-word;
 }
@@ -80,6 +98,9 @@ body main .messages .success, body main .messages .warning, body main .messages 
 }
 body main .messages .error {
   background-color: red;
+}
+body main .messages .error:hover {
+  background-color: green;
 }
 body main .messages .warning {
   background-color: orange;
